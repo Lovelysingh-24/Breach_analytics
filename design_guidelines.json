@@ -1,0 +1,120 @@
+{
+  "project_name": "CyberBreach Predictor Dashboard",
+  "theme": "dark",
+  "archetype": "Archetype 4: Swiss & High-Contrast",
+  "design_philosophy": "Authoritative, technical, and precise. A command-center for cybersecurity data science utilizing the 'Control Room' grid.",
+  "typography": {
+    "fonts": [
+      {
+        "role": "Headings",
+        "family": "Outfit",
+        "fallback": "sans-serif",
+        "weight": "font-bold to font-black"
+      },
+      {
+        "role": "Body",
+        "family": "IBM Plex Sans",
+        "fallback": "sans-serif",
+        "weight": "font-normal to font-medium"
+      },
+      {
+        "role": "Data & Code",
+        "family": "JetBrains Mono",
+        "fallback": "monospace",
+        "weight": "font-normal to font-bold"
+      }
+    ],
+    "rules": [
+      "BANNED: Inter, Space Grotesk, Roboto, Open Sans.",
+      "Headings over 32px must use tracking-tighter.",
+      "Overlines/Labels must be uppercase, text-xs, tracking-[0.2em].",
+      "Data figures and axes must use JetBrains Mono for tabular lining."
+    ]
+  },
+  "colors": {
+    "background": {
+      "base": "#0A0A0A",
+      "surface": "#1A1A1A",
+      "surface_hover": "#262626"
+    },
+    "text": {
+      "primary": "#FFFFFF",
+      "secondary": "#A1A1AA",
+      "muted": "#52525B"
+    },
+    "accents": {
+      "primary": "#007AFF",
+      "critical": "#FF3B30",
+      "warning": "#FFB340",
+      "success": "#34C759"
+    },
+    "borders": {
+      "default": "rgba(255, 255, 255, 0.1)",
+      "focus": "#007AFF"
+    },
+    "rules": [
+      "CRITICAL: Teal (#1B93A4) and Purple (#9D4CDD) are STRICTLY BANNED.",
+      "Do not use pure black (#000000) or pure gray. Use the provided tinted obsidian (#0A0A0A).",
+      "Hover states must be explicitly defined with higher contrast."
+    ]
+  },
+  "layout_and_spacing": {
+    "strategy": "The 'Control Room' Grid (Mode B)",
+    "container_padding": "p-6 or p-8 for rich spacing, even in dense dashboards.",
+    "grid_gap": "gap-4 to gap-6",
+    "rules": [
+      "Grid children must stretch vertically (h-full) to prevent jagged bottoms.",
+      "Mobile-first: grid-cols-1 scaling to grid-cols-4 or grid-cols-12 for bento.",
+      "Cards must be flat with 1px border. NO heavy shadows, NO glassmorphism."
+    ]
+  },
+  "components": {
+    "cards": "Flat background (#1A1A1A), 1px solid border (border-white/10), slight lift (-translate-y-1) on hover.",
+    "buttons": "Square or 2px radius. Primary uses Volt Blue (#007AFF) with pure white text.",
+    "charts": "Recharts. Line charts for ARIMA, Bar for Poisson. Grid lines should be border-white/5.",
+    "tables": "Technical Grid Borders style. Visible skeletal grid (border-collapse, border-white/10).",
+    "forms": "Shadcn UI customized. Square corners, flat surfaces, explicit focus rings (ring-2 ring-[#007AFF])."
+  },
+  "motion": {
+    "rules": [
+      "Staggered entrance for dashboard widgets (Framer Motion).",
+      "Micro-interactions on hover (slight translate-y, border color shift).",
+      "No long, slow animations. Keep it snappy and functional."
+    ]
+  },
+  "icons_and_media": {
+    "icon_library": "@phosphor-icons/react",
+    "images": {
+      "hero_background": {
+        "url": "https://images.pexels.com/photos/27141316/pexels-photo-27141316.jpeg",
+        "description": "Futuristic data analytics interface in low light.",
+        "usage": "Use with bg-black/70 overlay behind the main hero text and key stats."
+      },
+      "abstract_texture": {
+        "url": "https://images.pexels.com/photos/30547567/pexels-photo-30547567.jpeg",
+        "description": "Abstract digital circuit blocks.",
+        "usage": "Use as a subtle masked background for the 'Download PDF Report' CTA section."
+      }
+    }
+  },
+  "pages": {
+    "hero_landing": "High impact layout. Bold 'Outfit' H1 heading. Display key metrics (12-year data, <5% MAE) in bento-style stats cards.",
+    "eda_dashboard": "Dense multi-chart view. Breaches by year, industry, type. Mix of Bar, Pie, and Line charts.",
+    "arima_forecasting": "Focus on Time-Series. Large central chart comparing historical (white/gray line) to predicted (Volt Blue line). Confidence interval area shaded.",
+    "poisson_modeling": "Focus on distribution. Bar chart showing actual vs expected counts. Use Amber for visual distinction.",
+    "interactive_prediction": "Two-column layout. Left: Control sliders/selects. Right: Massive JetBrains Mono typography for predicted outcomes.",
+    "dataset_explorer": "Data-heavy table view. Sticky headers, technical borders, inline filter inputs.",
+    "model_metrics": "Minimalist 'Tracing Beam' style cards for MAE, RMSE, AIC metrics. High precision typography."
+  },
+  "testing": {
+    "attributes": "All interactive and key informational elements MUST include a `data-testid` attribute. Convention: kebab-case, role-based."
+  },
+  "instructions_to_main_agent": [
+    "Install required dependencies: yarn add @phosphor-icons/react recharts framer-motion clsx tailwind-merge lucide-react",
+    "Implement pure HTML/Tailwind for the marketing hero section, use Shadcn for the dashboard components.",
+    "Strictly follow the color palette. Any use of teal or purple will result in rejection.",
+    "Ensure charting components (Recharts) are responsive and match the dark theme.",
+    "Apply data-testid to every button, input, tab, and major chart container.",
+    "Remember you only have .js and .jsx files. Setup everything accordingly without Typescript files."
+  ]
+}
