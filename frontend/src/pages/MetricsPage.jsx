@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { PageHeader, StatCard, Panel, LoadingBlock } from "@/components/UI";
+import { IDS } from "@/constants/testIds/dashboard";
 import { api } from "@/lib/apiClient";
 
 export default function MetricsPage() {
@@ -40,23 +41,27 @@ export default function MetricsPage() {
                         value={metrics.arima.mae.toFixed(3)}
                         unit="incidents"
                         accent="primary"
+                        testId={IDS.arimaMetricMae}
                     />
                     <StatCard
                         label="RMSE"
                         value={metrics.arima.rmse.toFixed(3)}
                         unit="incidents"
                         accent="warning"
+                        testId={IDS.arimaMetricRmse}
                     />
                     <StatCard
                         label="MAPE"
                         value={`${metrics.arima.mape.toFixed(2)}`}
                         unit="%"
                         accent="critical"
+                        testId={IDS.arimaMetricMape}
                     />
                     <StatCard
                         label="AIC"
                         value={metrics.arima.aic.toFixed(1)}
                         accent="success"
+                        testId={IDS.arimaMetricAic}
                     />
                     <StatCard
                         label="BIC"
@@ -83,12 +88,14 @@ export default function MetricsPage() {
                         value={metrics.poisson.lambda_monthly.toFixed(3)}
                         unit="incidents/mo"
                         accent="warning"
+                        testId={IDS.poissonLambda}
                     />
                     <StatCard
                         label="Chi-square"
                         value={metrics.poisson.chi_square.toFixed(2)}
                         unit="statistic"
                         accent="primary"
+                        testId={IDS.poissonChiSquare}
                     />
                     <StatCard
                         label="p-value"
